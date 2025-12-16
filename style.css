@@ -671,12 +671,10 @@ footer {
         height: 40px;
     }
 
-    /* Touch Swipe Slider */
+    /* Touch Swipe Slider - use transform for infinite loop */
     .review-slider {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
+        overflow: hidden;
+        touch-action: pan-x;
     }
 
     .review-slider::-webkit-scrollbar {
@@ -684,8 +682,8 @@ footer {
     }
 
     .review-card {
-        min-width: 85%;
-        scroll-snap-align: center;
+        min-width: 280px;
+        width: 280px;
     }
 
     /* Mobile: Expand on Click */

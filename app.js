@@ -216,6 +216,50 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Set initial cursor
         slider.style.cursor = 'grab';
+
+        // Mobile: Touch swipe with infinite loop
+        let touchStartX = 0;
+        let touchStartTransform = 0;
+
+        slider.addEventListener('touchstart', (e) => {
+            clearInterval(autoPlayInterval); // Pause auto-play
+            touchStartX = e.touches[0].clientX;
+            const transform = track.style.transform;
+            touchStartTransform = transform ? parseInt(transform.replace(/[^-\d]/g, '')) || 0 : 0;
+            track.style.transition = 'none';
+        }, { passive: true });
+
+        slider.addEventListener('touchmove', (e) => {
+            const touchX = e.touches[0].clientX;
+            const walk = (touchX - touchStartX) * 1;
+            const newTransform = touchStartTransform + walk;
+            track.style.transform = `translateX(${newTransform}px)`;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', () => {
+            track.style.transition = 'transform 0.4s ease';
+
+            // Calculate which slide we should snap to
+            const originalCards = track.querySelectorAll('.review-card:not(.clone)');
+            const cardWidth = originalCards[0]?.offsetWidth + 20 || 300;
+            const transform = track.style.transform;
+            const currentTransform = transform ? parseInt(transform.replace(/[^-\d]/g, '')) || 0 : 0;
+
+            // Snap to nearest card
+            currentSlide = Math.round(Math.abs(currentTransform) / cardWidth);
+            const totalOriginal = originalCards.length;
+
+            // Keep within bounds of cloned array
+            if (currentSlide < totalOriginal) currentSlide = totalOriginal;
+            if (currentSlide >= totalOriginal * 2) currentSlide = totalOriginal * 2 - 1;
+
+            track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+            // Restart auto-play
+            autoPlayInterval = setInterval(() => {
+                slideReviews(1);
+            }, 3000);
+        });
     }
 
     // Mobile: Click to expand review cards
