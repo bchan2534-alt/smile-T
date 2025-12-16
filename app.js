@@ -44,30 +44,181 @@ window.addEventListener('resize', () => {
     }
 });
 
-// ===== Review Slider Navigation =====
+// ===== Review Slider Navigation (Infinite Loop) =====
 let currentSlide = 0;
+let isTransitioning = false;
 
-function slideReviews(direction) {
-    const slider = document.getElementById('reviewSlider');
-    const track = slider?.querySelector('.review-track');
-    const cards = track?.querySelectorAll('.review-card');
+function initInfiniteSlider() {
+    const track = document.querySelector('.review-track');
+    if (!track || track.dataset.cloned === 'true') return;
 
-    if (!track || !cards || cards.length === 0) return;
+    const cards = track.querySelectorAll('.review-card');
 
-    const cardWidth = cards[0].offsetWidth + 20; // card width + gap
-    const maxSlide = cards.length - 1;
+    // Clone first and last few cards for seamless loop
+    cards.forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('clone');
+        track.appendChild(clone);
+    });
 
-    currentSlide += direction;
+    // Clone last cards to beginning
+    [...cards].reverse().forEach(card => {
+        const clone = card.cloneNode(true);
+        clone.classList.add('clone');
+        track.insertBefore(clone, track.firstChild);
+    });
 
-    // Loop boundaries
-    if (currentSlide < 0) currentSlide = 0;
-    if (currentSlide > maxSlide) currentSlide = maxSlide;
+    track.dataset.cloned = 'true';
 
+    // Set initial position to skip the prepended clones
+    const cardWidth = cards[0].offsetWidth + 20;
+    currentSlide = cards.length;
+    track.style.transition = 'none';
     track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+    // Re-enable transition after initial positioning
+    setTimeout(() => {
+        track.style.transition = 'transform 0.4s ease';
+    }, 50);
 }
 
-// Mobile: Click to expand review cards
+function slideReviews(direction) {
+    if (isTransitioning) return;
+
+    const slider = document.getElementById('reviewSlider');
+    const track = slider?.querySelector('.review-track');
+    const originalCards = track?.querySelectorAll('.review-card:not(.clone)');
+
+    if (!track || !originalCards || originalCards.length === 0) return;
+
+    const cardWidth = originalCards[0].offsetWidth + 20;
+    const totalOriginal = originalCards.length;
+
+    isTransitioning = true;
+    currentSlide += direction;
+
+    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+    // Check if we need to reset position
+    setTimeout(() => {
+        // If we've scrolled past the end clones, jump to beginning
+        if (currentSlide >= totalOriginal * 2) {
+            track.style.transition = 'none';
+            currentSlide = totalOriginal;
+            track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+            setTimeout(() => {
+                track.style.transition = 'transform 0.4s ease';
+            }, 20);
+        }
+        // If we've scrolled before the beginning clones, jump to end
+        else if (currentSlide < totalOriginal) {
+            track.style.transition = 'none';
+            currentSlide = totalOriginal * 2 - 1;
+            track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+            setTimeout(() => {
+                track.style.transition = 'transform 0.4s ease';
+            }, 20);
+        }
+        isTransitioning = false;
+    }, 400);
+}
+
+// Desktop: Mouse drag to swipe
 document.addEventListener('DOMContentLoaded', () => {
+    // Initialize infinite loop slider
+    initInfiniteSlider();
+
+    const slider = document.getElementById('reviewSlider');
+    const track = slider?.querySelector('.review-track');
+    const controller = document.querySelector('.review-controller');
+
+    // Auto-play every 3 seconds
+    let autoPlayInterval = setInterval(() => {
+        slideReviews(1);
+    }, 3000);
+
+    // Pause auto-play on hover
+    if (slider) {
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                slideReviews(1);
+            }, 3000);
+        });
+    }
+
+    // Also pause when hovering controller
+    if (controller) {
+        controller.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+
+        controller.addEventListener('mouseleave', () => {
+            autoPlayInterval = setInterval(() => {
+                slideReviews(1);
+            }, 3000);
+        });
+    }
+
+    if (slider && track) {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let startTransform = 0;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            // Get current transform value
+            const transform = track.style.transform;
+            startTransform = transform ? parseInt(transform.replace(/[^-\d]/g, '')) || 0 : 0;
+            e.preventDefault();
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+
+            // Snap to nearest card
+            const cards = track.querySelectorAll('.review-card');
+            const cardWidth = cards[0]?.offsetWidth + 20 || 340;
+            track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 0.8; // Reduced speed for smoother feel
+            const newTransform = startTransform + walk;
+
+            // Get max scroll
+            const cards = track.querySelectorAll('.review-card');
+            const cardWidth = cards[0]?.offsetWidth + 20 || 340;
+            const maxScroll = -(cards.length - 1) * cardWidth;
+
+            // Clamp values
+            const clampedTransform = Math.max(maxScroll, Math.min(0, newTransform));
+            track.style.transform = `translateX(${clampedTransform}px)`;
+
+            // Update currentSlide for arrow sync
+            currentSlide = Math.round(Math.abs(clampedTransform) / cardWidth);
+        });
+
+        // Set initial cursor
+        slider.style.cursor = 'grab';
+    }
+
+    // Mobile: Click to expand review cards
     const expandableCards = document.querySelectorAll('.review-card.expandable');
 
     expandableCards.forEach(card => {
