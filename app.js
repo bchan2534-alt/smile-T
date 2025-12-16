@@ -220,39 +220,70 @@ document.addEventListener('DOMContentLoaded', () => {
         // Mobile: Touch swipe with infinite loop
         let touchStartX = 0;
         let touchStartTransform = 0;
+        let touchStartTime = 0;
+        let lastTouchX = 0;
+        let velocity = 0;
 
         slider.addEventListener('touchstart', (e) => {
-            clearInterval(autoPlayInterval); // Pause auto-play
+            clearInterval(autoPlayInterval);
             touchStartX = e.touches[0].clientX;
+            lastTouchX = touchStartX;
+            touchStartTime = Date.now();
+            velocity = 0;
+
             const transform = track.style.transform;
-            touchStartTransform = transform ? parseInt(transform.replace(/[^-\d]/g, '')) || 0 : 0;
+            const match = transform.match(/translateX\((-?\d+)/);
+            touchStartTransform = match ? parseInt(match[1]) : 0;
             track.style.transition = 'none';
         }, { passive: true });
 
         slider.addEventListener('touchmove', (e) => {
             const touchX = e.touches[0].clientX;
-            const walk = (touchX - touchStartX) * 1;
-            const newTransform = touchStartTransform + walk;
+            const diff = touchX - touchStartX;
+            const newTransform = touchStartTransform + diff;
+
+            // Track velocity
+            velocity = touchX - lastTouchX;
+            lastTouchX = touchX;
+
             track.style.transform = `translateX(${newTransform}px)`;
         }, { passive: true });
 
         slider.addEventListener('touchend', () => {
-            track.style.transition = 'transform 0.4s ease';
-
-            // Calculate which slide we should snap to
             const originalCards = track.querySelectorAll('.review-card:not(.clone)');
             const cardWidth = originalCards[0]?.offsetWidth + 20 || 300;
-            const transform = track.style.transform;
-            const currentTransform = transform ? parseInt(transform.replace(/[^-\d]/g, '')) || 0 : 0;
-
-            // Snap to nearest card
-            currentSlide = Math.round(Math.abs(currentTransform) / cardWidth);
             const totalOriginal = originalCards.length;
 
-            // Keep within bounds of cloned array
+            const transform = track.style.transform;
+            const match = transform.match(/translateX\((-?\d+)/);
+            let currentTransform = match ? parseInt(match[1]) : 0;
+
+            // Apply momentum based on velocity
+            const momentum = velocity * 5;
+            currentTransform += momentum;
+
+            // Determine direction based on velocity
+            let targetSlide;
+            if (Math.abs(velocity) > 3) {
+                // Fast swipe - move to next/prev
+                if (velocity > 0) {
+                    targetSlide = Math.floor(Math.abs(currentTransform) / cardWidth);
+                } else {
+                    targetSlide = Math.ceil(Math.abs(currentTransform) / cardWidth);
+                }
+            } else {
+                // Slow swipe - snap to nearest
+                targetSlide = Math.round(Math.abs(currentTransform) / cardWidth);
+            }
+
+            currentSlide = targetSlide;
+
+            // Keep within bounds
             if (currentSlide < totalOriginal) currentSlide = totalOriginal;
             if (currentSlide >= totalOriginal * 2) currentSlide = totalOriginal * 2 - 1;
 
+            // Smooth transition
+            track.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
 
             // Restart auto-play
