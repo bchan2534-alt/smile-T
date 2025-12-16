@@ -527,7 +527,9 @@ footer {
     border-radius: 16px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
     border: 1px solid #edf2f7;
+    width: 320px;
     min-width: 320px;
+    max-width: 320px;
     flex-shrink: 0;
     position: relative;
     transition: all 0.3s ease;
