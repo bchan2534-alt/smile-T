@@ -328,16 +328,20 @@ footer {
 /* Responsive Design */
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        height: auto;
-        padding: 20px 0;
+        display: flex;
+        flex-direction: row;
+        /* Force single row - no stacking */
+        justify-content: space-between;
+        /* Logo left, Menu right */
+        align-items: center;
+        /* Vertical center */
+        height: 60px;
+        padding: 0;
     }
 
     .nav-links {
-        margin-top: 20px;
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
+        /* These styles only apply when menu is closed in desktop mode */
+        /* Mobile uses fullscreen overlay instead */
     }
 
     .hero h1 {
