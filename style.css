@@ -178,6 +178,13 @@ nav {
 .nav-links {
     display: flex;
     gap: 32px;
+    align-items: center;
+}
+
+/* Hide mobile-only elements on desktop */
+.menu-close-btn,
+.menu-social-icons {
+    display: none;
 }
 
 .nav-links a {
