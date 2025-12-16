@@ -111,16 +111,18 @@ header {
     }
 }
 
-/* Menu Toggle Button with MENU text */
+/* Menu Toggle Button - Clean Hamburger Icon */
 .menu-toggle {
     display: none;
     /* Hidden on desktop */
     align-items: center;
-    gap: 8px;
+    justify-content: center;
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px 12px;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
     transition: background-color 0.2s;
 }
@@ -130,28 +132,32 @@ header {
 }
 
 .menu-text {
-    font-size: 0.85rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    letter-spacing: 0.5px;
+    display: none;
+    /* Hide MENU text */
 }
 
 .menu-icon {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
 }
 
 .menu-icon .bar {
-    width: 20px;
-    height: 2px;
+    width: 24px;
+    height: 3px;
     background-color: var(--primary-color);
+    border-radius: 2px;
     transition: all 0.3s ease;
 }
 
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
+    }
+
+    nav {
+        height: 60px;
+        /* Slightly smaller on mobile */
     }
 }
 
