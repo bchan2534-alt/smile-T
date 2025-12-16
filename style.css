@@ -693,17 +693,50 @@ footer {
         transition-delay: 0.25s;
     }
 
+    .nav-links.active li:nth-child(5) {
+        transition-delay: 0.3s;
+    }
+
     .nav-links a {
-        font-size: 1.5rem;
-        font-weight: 600;
+        font-size: 1.6rem;
+        font-weight: 700;
         color: var(--primary-color);
         padding: 12px 24px;
         display: block;
+        letter-spacing: -0.5px;
     }
 
     .nav-links a:hover,
     .nav-links a.active {
         color: var(--accent-color);
+    }
+
+    /* Social Icons in Mobile Menu */
+    .menu-social-icons {
+        position: absolute;
+        bottom: 60px;
+        display: flex;
+        gap: 24px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease 0.35s, transform 0.3s ease 0.35s;
+    }
+
+    .nav-links.active .menu-social-icons {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .menu-social-icons a {
+        font-size: 1.8rem;
+        color: var(--text-light);
+        padding: 0;
+        transition: color 0.2s, transform 0.2s;
+    }
+
+    .menu-social-icons a:hover {
+        color: var(--primary-color);
+        transform: scale(1.1);
     }
 
     /* Close Button for Full-Screen Menu */
