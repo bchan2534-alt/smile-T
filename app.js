@@ -278,13 +278,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
             currentSlide = targetSlide;
 
-            // Keep within bounds
-            if (currentSlide < totalOriginal) currentSlide = totalOriginal;
-            if (currentSlide >= totalOriginal * 2) currentSlide = totalOriginal * 2 - 1;
-
             // Smooth transition
             track.style.transition = 'transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
             track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+
+            // After animation, check if we need to reset for seamless loop
+            setTimeout(() => {
+                // If scrolled past the end clones, jump to beginning
+                if (currentSlide >= totalOriginal * 2) {
+                    track.style.transition = 'none';
+                    currentSlide = totalOriginal;
+                    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+                }
+                // If scrolled before the beginning clones, jump to end
+                else if (currentSlide < totalOriginal) {
+                    track.style.transition = 'none';
+                    currentSlide = totalOriginal * 2 - 1;
+                    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+                }
+            }, 350);
 
             // Restart auto-play
             autoPlayInterval = setInterval(() => {
