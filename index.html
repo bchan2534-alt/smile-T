@@ -86,51 +86,69 @@
     </section>
 
     <!-- Social Proof / Reviews Section -->
-    <section class="reviews" style="padding: 80px 0; background-color: white;">
+    <section class="reviews-section">
         <div class="container">
-            <h2
-                style="text-align: center; color: var(--primary-color); font-size: 2rem; margin-bottom: 20px; letter-spacing: -0.5px;">
-                Moments That Last a Lifetime</h2>
-            <p
-                style="text-align: center; color: var(--text-light); margin-bottom: 50px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Don't just take our word for it. Here is what our travelers say about their journey with us.
-            </p>
-
-            <div class="review-grid">
-                <!-- Review 1 -->
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"He picked us up at 0900 as a guide, and dropped us off at 1800 as our
-                        <strong>new
-                            life long friend</strong>. It was truly an amazing day."
-                    </p>
-                    <div class="reviewer">
-                        <img src="https://ui-avatars.com/api/?name=Spencer+Z&background=random" alt="User">
-                        <span>Spencer Zeavin</span>
+            <div class="reviews-wrapper">
+                <!-- Card 1: The Controller -->
+                <div class="review-controller">
+                    <h2>Reviews</h2>
+                    <div class="rating-display">
+                        <span class="rating-number">5.0</span>
+                        <div class="rating-stars">★★★★★</div>
+                        <span class="rating-count">Based on 50+ reviews</span>
+                    </div>
+                    <div class="nav-arrows">
+                        <button class="arrow-btn prev-btn" onclick="slideReviews(-1)" aria-label="Previous">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="15,18 9,12 15,6"></polyline>
+                            </svg>
+                        </button>
+                        <button class="arrow-btn next-btn" onclick="slideReviews(1)" aria-label="Next">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9,6 15,12 9,18"></polyline>
+                            </svg>
+                        </button>
                     </div>
                 </div>
 
-                <!-- Review 2 -->
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"Jeff went out of his way to fulfill my old man’s idea for a <strong>perfect
-                            day in
-                            Korea</strong>. We ditched the plan and found magic."</p>
-                    <div class="reviewer">
-                        <img src="https://ui-avatars.com/api/?name=Jeff+K&background=random" alt="User">
-                        <span>Jeff & Family</span>
-                    </div>
-                </div>
+                <!-- Cards 2+: The Slider -->
+                <div class="review-slider" id="reviewSlider">
+                    <div class="review-track">
+                        <!-- Review 1 -->
+                        <div class="review-card expandable">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"He picked us up at 0900 as a guide, and dropped us off at 1800 as
+                                our <strong>new life long friend</strong>. It was truly an amazing day. We visited
+                                places we never knew existed and experienced authentic Korean hospitality."</p>
+                            <div class="reviewer">
+                                <img src="https://ui-avatars.com/api/?name=Spencer+Z&background=random" alt="User">
+                                <span>Spencer Zeavin</span>
+                            </div>
+                        </div>
 
-                <!-- Review 3 -->
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">"The most <strong>professional and flexible</strong> service. When we got
-                        tired, he
-                        instantly changed the itinerary to suit our pace. Highly recommended!"</p>
-                    <div class="reviewer">
-                        <img src="https://ui-avatars.com/api/?name=Sue+K&background=random" alt="User">
-                        <span>Sue Kemp</span>
+                        <!-- Review 2 -->
+                        <div class="review-card expandable">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"Jeff went out of his way to fulfill my old man's idea for a
+                                <strong>perfect day in Korea</strong>. We ditched the plan and found magic. He knew
+                                exactly what we needed and made it happen effortlessly."</p>
+                            <div class="reviewer">
+                                <img src="https://ui-avatars.com/api/?name=Jeff+K&background=random" alt="User">
+                                <span>Jeff & Family</span>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="review-card expandable">
+                            <div class="stars">★★★★★</div>
+                            <p class="review-text">"The most <strong>professional and flexible</strong> service. When we
+                                got tired, he instantly changed the itinerary to suit our pace. Highly recommended for
+                                families with young children or elderly."</p>
+                            <div class="reviewer">
+                                <img src="https://ui-avatars.com/api/?name=Sue+K&background=random" alt="User">
+                                <span>Sue Kemp</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

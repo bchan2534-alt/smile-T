@@ -44,6 +44,47 @@ window.addEventListener('resize', () => {
     }
 });
 
+// ===== Review Slider Navigation =====
+let currentSlide = 0;
+
+function slideReviews(direction) {
+    const slider = document.getElementById('reviewSlider');
+    const track = slider?.querySelector('.review-track');
+    const cards = track?.querySelectorAll('.review-card');
+
+    if (!track || !cards || cards.length === 0) return;
+
+    const cardWidth = cards[0].offsetWidth + 20; // card width + gap
+    const maxSlide = cards.length - 1;
+
+    currentSlide += direction;
+
+    // Loop boundaries
+    if (currentSlide < 0) currentSlide = 0;
+    if (currentSlide > maxSlide) currentSlide = maxSlide;
+
+    track.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+}
+
+// Mobile: Click to expand review cards
+document.addEventListener('DOMContentLoaded', () => {
+    const expandableCards = document.querySelectorAll('.review-card.expandable');
+
+    expandableCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Only on mobile
+            if (window.innerWidth <= 768) {
+                // Close other expanded cards
+                expandableCards.forEach(c => {
+                    if (c !== card) c.classList.remove('expanded');
+                });
+                // Toggle current card
+                card.classList.toggle('expanded');
+            }
+        });
+    });
+});
+
 // Video Modal Functions
 const YOUTUBE_VIDEO_ID = 'i6dQqmeU_i8'; // Your Shorts video ID
 
