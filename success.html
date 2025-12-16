@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiry Sent - Smile Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .success-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #e6f4ea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-icon svg {
+            width: 40px;
+            height: 40px;
+            fill: #1e8e3e;
+            /* Green color */
+        }
+
+        .success-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .success-message {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .highlight {
+            font-weight: 700;
+            color: #1e8e3e;
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            80% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header (simplified) -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SMILE TOUR</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container success-container">
+        <div class="success-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <!-- Check Icon -->
+                <path
+                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+        </div>
+        <h1 class="success-title">Thank You!</h1>
+        <p class="success-message">
+            We have received your details.<br>
+            We will contact you <span class="highlight">within 24 hours</span> via email or WhatsApp.
+        </p>
+        <a href="index.html" class="btn btn-primary" style="padding: 15px 40px; font-size: 1.1rem;">Back to Home</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="copyright" style="text-align: center;">
+                &copy; 2025 Smile Tour. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

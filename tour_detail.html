@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incheon Flexible Private Layover Tour - Smile Tour</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Highlight specific for this page as requested */
+        :root {
+            --cta-urgent: #e6005c;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">SMILE TOUR</a>
+                <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="tours.html" class="active">Tours</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <!-- Updated CTA to match page goal -->
+                    <li><a href="#booking" class="btn btn-cta"
+                            style="background-color: var(--cta-urgent); color: white;">Check Availability</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="tour-hero">
+        <div class="tour-hero-overlay"></div>
+        <div class="container tour-hero-content">
+            <p class="tour-subhead" style="font-size: 2rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.5);">
+                100% Private, Flexible Layover Tour with a Local Expert.</p>
+            <a href="#booking" class="btn btn-urgent">Check Availability & Price</a>
+        </div>
+    </section>
+
+
+
+    <!-- 3. Visual Itinerary Showcase -->
+    <section class="visual-itinerary-section">
+        <div class="container">
+            <div class="split-layout">
+                <div class="visual-text">
+                    <span class="eyebrow">Visualizing Your Trip</span>
+                    <h2>Unsure where to go?</h2>
+                    <p>I'll create a custom visual itinerary (PDF) for your trip.</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-check"></i> <strong>Personalized Timeline</strong> based on your arrival
+                            time</li>
+                        <li><i class="fas fa-check"></i> <strong>Video Previews</strong> of each stop before you go</li>
+                        <li><i class="fas fa-check"></i> <strong>Delivered within 24 hours</strong></li>
+                    </ul>
+                </div>
+                <div class="visual-mockup">
+                    <div class="secret-document-wrapper">
+                        <div class="secret-document">
+                            <!-- Overlay Content -->
+                            <div class="secret-overlay">
+                                <div class="lock-icon"><i class="fas fa-lock"></i></div>
+                                <div class="secret-title">Secret Itinerary</div>
+                                <div class="secret-subtitle">Available after booking</div>
+                                <div class="video-preview-tag">✨ Includes Video Previews</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Tour Itinerary (Timeline) -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Tour Flow <span class="badge-flex">Flexible</span></h2>
+            <div class="timeline">
+                <!-- Pickup -->
+                <div class="timeline-item">
+                    <div class="time-marker"><i class="fas fa-plane-arrival"></i></div>
+                    <div class="timeline-content">
+                        <h3>Pickup @ ICN Airport</h3>
+                        <p>Meet at Arrival Hall with a nameboard. Quick start, no waiting.</p>
+                    </div>
+                </div>
+                <!-- Stop 1 -->
+                <div class="timeline-item">
+                    <div class="time-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Wolmido Island</h3>
+                        <p>Experience the Seaside Monorail and local vibes.</p>
+                    </div>
+                </div>
+                <!-- Stop 2 -->
+                <div class="timeline-item">
+                    <div class="time-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Open Port Area & Chinatown</h3>
+                        <p>A historical walking tour through 19th-century architecture.</p>
+                    </div>
+                </div>
+                <!-- Stop 3 -->
+                <div class="timeline-item">
+                    <div class="time-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Songdo International City</h3>
+                        <p>Futuristic skyline, Central Park Water Taxi, and Triple Street.</p>
+                    </div>
+                </div>
+                <!-- Stop 4 -->
+                <div class="timeline-item">
+                    <div class="time-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Incheon Grand Bridge</h3>
+                        <p>Scenic drive across Korea's longest bridge.</p>
+                    </div>
+                </div>
+                <!-- Stop 5 -->
+                <div class="timeline-item">
+                    <div class="time-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Inspire Entertainment Resort</h3>
+                        <p>Witness the jaw-dropping Aurora Digital Art Show.</p>
+                    </div>
+                </div>
+                <!-- Dropoff -->
+                <div class="timeline-item">
+                    <div class="time-marker"><i class="fas fa-plane-departure"></i></div>
+                    <div class="timeline-content">
+                        <h3>Safe Return to Airport</h3>
+                        <p>Guaranteed drop-off 2 hours before your flight.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Vehicle & Comfort -->
+    <section class="vehicle-section">
+        <div class="container">
+            <h2 class="section-title">Your Private Moving Lounge</h2>
+            <div class="vehicle-card">
+                <div class="vehicle-img-placeholder">
+                    <i class="fas fa-car"></i>
+                    <span>Volvo C40 Recharge / Premium Van</span>
+                </div>
+                <div class="vehicle-features">
+                    <div class="feature"><i class="fas fa-wifi"></i> Free WiFi</div>
+                    <div class="feature"><i class="fas fa-bolt"></i> Phone Chargers</div>
+                    <div class="feature"><i class="fas fa-tint"></i> Bottled Water</div>
+                    <div class="feature"><i class="fas fa-smoking-ban"></i> Non-smoking</div>
+                    <div class="feature"><i class="fas fa-shield-alt"></i> Clean & Safe</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Pricing -->
+    <section id="booking" class="pricing-section">
+        <div class="container">
+            <h2 class="section-title">Simple Flat Rate</h2>
+            <p class="pricing-sub">Price per Vehicle, NOT per person.</p>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Sedan Option</h3>
+                    <p class="pax">1-3 Pax</p>
+                    <div class="price">$250 <span>USD / Flat</span></div>
+                    <a href="contact.html" class="btn btn-urgent full-width">Book This Car</a>
+                </div>
+                <div class="pricing-card recommended">
+                    <div class="badge-rec">Most Popular</div>
+                    <h3>MPV / Van Option</h3>
+                    <p class="pax">4-6 Pax</p>
+                    <div class="price">$350 <span>USD / Flat</span></div>
+                    <a href="contact.html" class="btn btn-urgent full-width">Book This Van</a>
+                </div>
+            </div>
+            <p class="pricing-note">* Includes Vehicle, Gas, Tolls, Parking, English Guide. Excludes Meals & Entrance
+                Fees.</p>
+        </div>
+    </section>
+
+    <!-- 7. Reviews -->
+    <section class="reviews-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-star" style="color: gold;"></i> Verified Reviews</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Turned a boring layover into the highlight of my trip! Jeff knew exactly
+                        where to go to maximize our time."</p>
+                    <div class="reviewer">
+                        <span>- David, Australia</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"The visual itinerary he sent beforehand was a game changer. We knew exactly
+                        what to expect. Highly recommended!"</p>
+                    <div class="reviewer">
+                        <span>- Sarah, UK</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Clean car, safe driving, and super friendly. The Aurora show at Inspire was
+                        incredible."</p>
+                    <div class="reviewer">
+                        <span>- Michael, USA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>SMILE TOUR</h4>
+                    <p style="color: #ccc; line-height: 1.6;">Creating premium travel experiences for discerning
+                        travelers.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="tours.html">Tours</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li><a href="mailto:chan3318@naver.com">chan3318@naver.com</a></li>
+                        <li><a href="tel:+821033292534">+82 10-3329-2534</a></li>
+                    </ul>
+                    <div class="footer-social" style="margin-top: 16px; display: flex; gap: 12px;">
+                        <a href="https://youtube.com/shorts/i6dQqmeU_i8" target="_blank" aria-label="YouTube"
+                            style="color: #ccc; font-size: 1.5rem; transition: color 0.2s;">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="https://wa.me/821033292534" target="_blank" aria-label="WhatsApp"
+                            style="color: #ccc; font-size: 1.5rem; transition: color 0.2s;">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Smile Tour. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Sticky Bottom CTA -->
+    <div class="mobile-bottom-cta">
+        <div class="price-preview">From $250</div>
+        <a href="contact.html" class="btn btn-urgent">Reserve Now</a>
+    </div>
+
+
+
+    <!-- Floating WhatsApp Button -->
+    <div class="floating-whatsapp">
+        <div class="chat-tooltip">Chat with Guide</div>
+        <a href="https://wa.me/821033292534" target="_blank" class="whatsapp-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-28.4l-6.7-4.6-69.8 18.3 18.6-68.1-4.4-6.9c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- Video Modal (Lightbox) -->
+    <div id="videoModal" class="video-modal" onclick="closeVideoModal(event)">
+        <div class="video-modal-content">
+            <button class="modal-close" onclick="closeVideoModal(event)">&times;</button>
+            <div class="video-container">
+                <iframe id="youtubePlayer" src="" title="Tour Preview" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

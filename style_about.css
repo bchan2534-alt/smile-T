@@ -1,0 +1,202 @@
+/* --- About Page Specific Styles --- */
+
+/* Profile Section */
+.profile-section {
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.profile-image {
+    flex: 1;
+    max-width: 400px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    background-color: #eee;
+    /* Placeholder bg */
+    aspect-ratio: 3/4;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profile-content {
+    flex: 1.5;
+}
+
+.profile-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.profile-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    white-space: pre-line;
+    /* Handle line breaks in copy */
+}
+
+/* Stats Section */
+.stats-section {
+    background-color: var(--secondary-color);
+    padding: 60px 0;
+    margin: 40px 0;
+    border-radius: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 20px;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.stat-desc {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+/* Visual Portfolio */
+.portfolio-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.gallery-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.gallery-img-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 20px;
+}
+
+.gallery-caption {
+    padding: 20px;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    line-height: 1.5;
+    font-weight: 500;
+    border-top: 1px solid var(--border-color);
+    background: #fff;
+    font-style: italic;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .profile-section {
+        flex-direction: column;
+        padding: 40px 0;
+    }
+
+    .profile-image {
+        width: 100%;
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .profile-content h2 {
+        font-size: 2rem;
+    }
+
+    /* Stats Section - Mobile Horizontal List Style */
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: left;
+    }
+
+    .stat-item {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        background: white;
+        border-radius: 12px;
+    }
+
+    .stat-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--secondary-color);
+        border-radius: 10px;
+    }
+
+    .stat-item .stat-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        margin-bottom: 2px;
+    }
+
+    .stat-desc {
+        font-size: 0.9rem;
+    }
+}
