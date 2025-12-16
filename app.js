@@ -4,6 +4,46 @@ function toggleMobileMenu() {
     navLinks.classList.toggle('active');
 }
 
+// Smart Sticky Header - Hide on scroll down, show on scroll up
+let lastScrollTop = 0;
+let scrollThreshold = 5; // Minimum scroll amount to trigger
+
+function handleSmartHeader() {
+    const header = document.querySelector('header');
+    if (!header) return;
+
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Don't do anything if scroll is very small
+    if (Math.abs(currentScroll - lastScrollTop) <= scrollThreshold) return;
+
+    // Scrolling down - hide header
+    if (currentScroll > lastScrollTop && currentScroll > 80) {
+        header.classList.add('header-hidden');
+    }
+    // Scrolling up - show header
+    else {
+        header.classList.remove('header-hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+}
+
+// Only apply on mobile
+if (window.innerWidth <= 768) {
+    window.addEventListener('scroll', handleSmartHeader, { passive: true });
+}
+
+// Re-check on resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth <= 768) {
+        window.addEventListener('scroll', handleSmartHeader, { passive: true });
+    } else {
+        window.removeEventListener('scroll', handleSmartHeader);
+        document.querySelector('header')?.classList.remove('header-hidden');
+    }
+});
+
 // Video Modal Functions
 const YOUTUBE_VIDEO_ID = 'i6dQqmeU_i8'; // Your Shorts video ID
 

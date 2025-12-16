@@ -101,6 +101,58 @@ header {
     top: 0;
     z-index: 1000;
     box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease;
+}
+
+/* Smart Sticky - Header Hidden State (Mobile only) */
+@media (max-width: 768px) {
+    header.header-hidden {
+        transform: translateY(-100%);
+    }
+}
+
+/* Menu Toggle Button with MENU text */
+.menu-toggle {
+    display: none;
+    /* Hidden on desktop */
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+}
+
+.menu-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.menu-text {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-icon .bar {
+    width: 20px;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
 }
 
 nav {
