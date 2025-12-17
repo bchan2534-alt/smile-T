@@ -23,11 +23,15 @@
             <nav>
                 <a href="index.html" class="logo">SMILE TOUR</a>
                 <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
+                    <span class="menu-text">MENU</span>
+                    <span class="menu-icon">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
                 </button>
                 <ul class="nav-links">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()" aria-label="Close menu">&times;</button>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="tours.html" class="active">Tours</a></li>
@@ -35,6 +39,12 @@
                     <!-- Updated CTA to match page goal -->
                     <li><a href="#booking" class="btn btn-cta"
                             style="background-color: var(--cta-urgent); color: white;">Check Availability</a></li>
+                    <div class="menu-social-icons">
+                        <a href="https://youtube.com/shorts/i6dQqmeU_i8" target="_blank" aria-label="YouTube"><i
+                                class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/821033292534" target="_blank" aria-label="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                    </div>
                 </ul>
             </nav>
         </div>
