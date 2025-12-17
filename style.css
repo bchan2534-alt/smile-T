@@ -422,6 +422,274 @@ footer {
     font-size: 0.9rem;
 }
 
+/* ===== Featured Tours Section ===== */
+.featured-tours {
+    padding: 80px 0;
+    background-color: white;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.tours-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.tour-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tour-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.tour-image {
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.tour-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tour-icon {
+    font-size: 4rem;
+}
+
+.tour-content {
+    padding: 24px;
+}
+
+.tour-content h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.tour-content p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.tour-link {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.tour-link:hover {
+    color: var(--accent-color);
+}
+
+/* ===== Meet the Guide Section ===== */
+.meet-guide {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e8f4fd 100%);
+}
+
+.guide-wrapper {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.guide-image {
+    position: relative;
+    text-align: center;
+}
+
+.guide-image img {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 25% center;
+    /* Shift left to center Jeff */
+    box-shadow: 0 20px 50px rgba(0, 102, 204, 0.3);
+    border: 6px solid white;
+}
+
+.guide-badge {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-color);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.guide-label {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.guide-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 8px 0 4px;
+    font-weight: 800;
+}
+
+/* Certification Badge */
+.certification-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 14px;
+}
+
+.cert-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #D4AF37 100%);
+    border-radius: 50%;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);
+}
+
+.cert-text {
+    color: #D4AF37;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.guide-content h3 {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.guide-content p {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.guide-highlights {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.guide-highlights li {
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Mobile Responsive for New Sections */
+@media (max-width: 768px) {
+    .featured-tours {
+        padding: 50px 0;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    .tours-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tour-image {
+        height: 140px;
+    }
+
+    .tour-icon {
+        font-size: 3rem;
+    }
+
+    .meet-guide {
+        padding: 50px 0;
+    }
+
+    .guide-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: center;
+    }
+
+    .guide-image img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .guide-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .guide-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .guide-highlights {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+}
+
 /* ===== Reviews Section: Controller + Slider ===== */
 .reviews-section {
     padding: 80px 0;
