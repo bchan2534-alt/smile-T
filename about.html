@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Smile Tour</title>
+    <title>About Us - J-YOUKOREA</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&display=swap" rel="stylesheet">
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_about.css">
+    <link rel="stylesheet" href="style_youtube.css">
 </head>
 
 <body>
@@ -16,7 +18,9 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">SMILE TOUR</a>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="J-YOUKOREA">
+                </a>
                 <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
                     <span class="menu-text">MENU</span>
                     <span class="menu-icon">
@@ -71,34 +75,44 @@
         </section>
     </div>
 
-    <!-- 2. Smile Tour in Numbers -->
+    <!-- 2. J-YOUKOREA in Numbers -->
     <section class="stats-section">
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-icon mapped_icon"><i class="fas fa-car-side"></i></span>
-                    <span class="stat-number">50+</span>
-                    <span class="stat-desc">Successful Private Tours</span>
+                    <div class="stat-text">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-desc">Successful Private Tours</span>
+                    </div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon mapped_icon"><i class="fas fa-star"></i></span>
-                    <span class="stat-number">5.0</span>
-                    <span class="stat-desc">Customer Satisfaction</span>
+                    <div class="stat-text">
+                        <span class="stat-number">5.0</span>
+                        <span class="stat-desc">Customer Satisfaction</span>
+                    </div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon mapped_icon"><i class="fas fa-users"></i></span>
-                    <span class="stat-number">20+</span>
-                    <span class="stat-desc">Max Group Size Handled</span>
+                    <div class="stat-text">
+                        <span class="stat-number">20+</span>
+                        <span class="stat-desc">Max Group Size Handled</span>
+                    </div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon mapped_icon"><i class="fas fa-calendar-check"></i></span>
-                    <span class="stat-number">24h</span>
-                    <span class="stat-desc">Free Cancellation</span>
+                    <div class="stat-text">
+                        <span class="stat-number">24h</span>
+                        <span class="stat-desc">Free Cancellation</span>
+                    </div>
                 </div>
                 <div class="stat-item">
                     <span class="stat-icon mapped_icon"><i class="fas fa-file-invoice"></i></span>
-                    <span class="stat-number">Free</span>
-                    <span class="stat-desc">Customized Visual Itinerary</span>
+                    <div class="stat-text">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-desc">Customized Visual Itinerary</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -313,7 +327,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h4>SMILE TOUR</h4>
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="J-YOUKOREA">
+                    </div>
                     <p style="color: #ccc; line-height: 1.6;">Creating premium travel experiences for discerning
                         travelers. Your journey begins here.</p>
                 </div>
@@ -346,7 +362,7 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Smile Tour. All rights reserved.
+                &copy; 2025 J-YOUKOREA. All rights reserved.
             </div>
         </div>
     </footer>

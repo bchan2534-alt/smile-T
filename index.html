@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMILE TOUR - Premium Private & Group Tours</title>
+    <title>J-YOUKOREA - Premium Private & Group Tours</title>
 
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_youtube.css">
 </head>
 
 <body>
@@ -22,7 +23,9 @@
     <header>
         <div class="container">
             <nav>
-                <a href="index.html" class="logo">SMILE TOUR</a>
+                <a href="index.html" class="logo">
+                    <img src="assets/logo.png" alt="J-YOUKOREA">
+                </a>
                 <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle navigation">
                     <span class="menu-text">MENU</span>
                     <span class="menu-icon">
@@ -37,9 +40,9 @@
                     <li><a href="about.html">About</a></li>
                     <li><a href="tours.html">Tours</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="#" class="btn btn-cta">Reserve Now</a></li>
+                    <li><a href="contact.html" class="btn btn-cta">Reserve Now</a></li>
                     <div class="menu-social-icons">
-                        <a href="https://youtube.com/shorts/i6dQqmeU_i8" target="_blank" aria-label="YouTube"><i
+                        <a href="javascript:void(0)" onclick="openVideoModal()" aria-label="YouTube"><i
                                 class="fab fa-youtube"></i></a>
                         <a href="https://wa.me/821033292534" target="_blank" aria-label="WhatsApp"><i
                                 class="fab fa-whatsapp"></i></a>
@@ -70,6 +73,9 @@
                 <a href="tours.html" class="btn btn-white"
                     style="background: white; color: var(--primary-color); padding: 12px 24px; border-radius: 8px; font-weight: 600; min-width: 180px; text-align: center;">Find
                     Your Tour</a>
+                <a href="javascript:void(0)" onclick="openVideoModal()" class="btn btn-white"
+                    style="background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); border: 1px solid white; color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; min-width: 180px; text-align: center;">Watch
+                    Preview</a>
                 <a href="contact.html" class="btn btn-outline-white"
                     style="border: 2px solid white; color: white; padding: 12px 24px; border-radius: 8px; font-weight: 600; min-width: 180px; text-align: center;">Design
                     Your Tour</a>
@@ -332,7 +338,9 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col">
-                    <h4>SMILE TOUR</h4>
+                    <div class="footer-logo">
+                        <img src="assets/logo.png" alt="J-YOUKOREA">
+                    </div>
                     <p style="color: #ccc; line-height: 1.6;">Creating premium travel experiences for discerning
                         travelers. Your journey begins here.</p>
                 </div>
@@ -353,7 +361,7 @@
                         <li>Seoul, South Korea</li>
                     </ul>
                     <div class="footer-social" style="margin-top: 16px; display: flex; gap: 12px;">
-                        <a href="https://youtube.com/shorts/i6dQqmeU_i8" target="_blank" aria-label="YouTube"
+                        <a href="javascript:void(0)" onclick="openVideoModal()" aria-label="YouTube"
                             style="color: #ccc; font-size: 1.5rem; transition: color 0.2s;">
                             <i class="fab fa-youtube"></i>
                         </a>
@@ -365,17 +373,28 @@
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Smile Tour. All rights reserved.
+                &copy; 2025 J-YOUKOREA. All rights reserved.
             </div>
         </div>
     </footer>
 
     <!-- Mobile Sticky CTA Bar -->
     <div class="mobile-cta-bar">
-        <a href="#" class="btn btn-cta">Reserve Now</a>
+        <a href="contact.html" class="btn btn-cta">Reserve Now</a>
     </div>
 
 
+
+    <!-- Floating YouTube Button -->
+    <div class="floating-youtube">
+        <div class="yt-tooltip">Tour Preview</div>
+        <button class="youtube-btn" onclick="openVideoModal()" aria-label="Watch Preview">
+            <svg viewBox="0 0 576 512">
+                <path
+                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.781 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+            </svg>
+        </button>
+    </div>
 
     <!-- Floating WhatsApp Button -->
     <div class="floating-whatsapp">

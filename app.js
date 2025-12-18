@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const filterValue = button.textContent.trim().toLowerCase();
 
                 tourCards.forEach(card => {
-                    const badge = card.querySelector('.badge');
+                    const badge = card.querySelector('.badge') || card.querySelector('.tour-badge');
                     const category = badge ? badge.textContent.trim().toLowerCase() : '';
 
                     if (filterValue === 'all tours') {
