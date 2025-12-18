@@ -165,7 +165,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 100px;
 }
 
 .logo {
@@ -174,7 +174,7 @@ nav {
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
     width: auto;
     object-fit: contain;
 }
@@ -349,8 +349,12 @@ footer {
         /* Logo left, Menu right */
         align-items: center;
         /* Vertical center */
-        height: 60px;
+        height: 80px;
         padding: 0;
+    }
+
+    .logo img {
+        height: 55px;
     }
 
     .hero h1 {
