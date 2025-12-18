@@ -165,14 +165,28 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 80px;
+    height: 100px;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo img {
+    height: 45px;
+    width: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 6px 10px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 .nav-links {
@@ -335,13 +349,12 @@ footer {
         /* Logo left, Menu right */
         align-items: center;
         /* Vertical center */
-        height: 60px;
+        height: 80px;
         padding: 0;
     }
 
-    .nav-links {
-        /* These styles only apply when menu is closed in desktop mode */
-        /* Mobile uses fullscreen overlay instead */
+    .logo img {
+        height: 55px;
     }
 
     .hero h1 {
@@ -356,7 +369,7 @@ footer {
         text-align: left;
     }
 
-    /* Hide first column (SMILE TOUR + description) on mobile */
+    /* Hide first column (J-YOUKOREA + description) on mobile */
     .footer-content>.footer-col:first-child {
         grid-column: 1 / -1;
         /* Span full width */
